@@ -22,12 +22,12 @@
    networkmanagerapplet
 
 #     Computer only
-#   steam
-#   obs-studio
-#   protonplus
-#   heroic
+   steam
+   obs-studio
+   protonplus
+   heroic
 
 #     Laptop only
-   brightnessctl
-   power-profiles-daemon
+#   brightnessctl
+#   power-profiles-daemon
 ]

@@ -12,6 +12,11 @@
 
 #  Use the systemd-boot EFI boot loader.
    boot.loader.limine.enable = true;
+   boot.loader.limine.extraEntries = ''
+      /Windows_11
+      protocol: efi
+      path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
+   '';
    boot.loader.efi.canTouchEfiVariables = true;
 
    networking.hostName = "nykta"; # Define your hostname.
@@ -36,16 +41,16 @@
 
 #   GPU Drivers
 
-#  hardware.graphics.enable = true;
-#     services.xserver.videoDrivers = ["nvidia"];
-#        hardware.nvidia = {
-#           modsetting.enable = true;
-#           powerManagment.enable = false;
-#           powerManagment.finegrained = false;
-#           open = true;
-#           nvidiaSettings = true;
-#           package = config.boot.kernelPackages.nvidiaPackages.latest;;
-#         };
+  hardware.graphics.enable = true;
+     services.xserver.videoDrivers = ["nvidia"];
+        hardware.nvidia = {
+           modesetting.enable = true;
+           powerManagement.enable = false;
+           powerManagement.finegrained = false;
+           open = true;
+           nvidiaSettings = true;
+           package = config.boot.kernelPackages.nvidiaPackages.latest;
+         };
    
 #  services.flatpak.enable = true;
 
