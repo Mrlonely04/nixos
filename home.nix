@@ -21,7 +21,7 @@
          clean = "nix-collect-garbage -d";
          Sclean = "sudo nix-collect-garbage -d";
          list-gen = "nixos-rebuild list-generations";
-         add-gc = "git add -f /home/nykta/nixos-dotfiles/hardware-configuration.nix";
+         add-hc = "git add -f /home/nykta/nixos-dotfiles/hardware-configuration.nix";
          rm-hc = "git rm --cached hardware-configuration.nix";
 		};
 		profileExtra = ''
