@@ -23,8 +23,8 @@
    udiskie
 
 #     Computer only
-   steam
    obs-studio
+   steam
    protonplus
    heroic
 
