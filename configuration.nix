@@ -18,6 +18,7 @@
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
    boot.loader.efi.canTouchEfiVariables = true;
+   services.udisks2.enable = true;
 
    networking.hostName = "nykta"; # Define your hostname.
 #  Configure network connections interactively with nmcli or nmtui.
@@ -52,7 +53,7 @@
            package = config.boot.kernelPackages.nvidiaPackages.latest;
          };
    
-#  services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
 
 #  Define a user account. Don't forget to set a password with ‘passwd’.

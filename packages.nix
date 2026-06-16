@@ -20,6 +20,7 @@
    pavucontrol
    fastfetch
    networkmanagerapplet
+   udiskie
 
 #     Computer only
    steam

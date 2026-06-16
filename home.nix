@@ -20,7 +20,9 @@
 			up = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
          clean = "nix-collect-garbage -d";
          Sclean = "sudo nix-collect-garbage -d";
-         list-gen = "nix-rebuild list-generations";
+         list-gen = "nixos-rebuild list-generations";
+         add-gc = "git add -f /home/nykta/nixos-dotfiles/hardware-configuration.nix";
+         rm-hc = "git rm --cached hardware-configuration.nix";
 		};
 		profileExtra = ''
 			if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTR" = 1 ]; then
