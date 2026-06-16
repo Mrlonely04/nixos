@@ -41,7 +41,7 @@
       };
 
 #   GPU Drivers
-
+  hardware.graphics.enable32Bit = true;
   hardware.graphics.enable = true;
      services.xserver.videoDrivers = ["nvidia"];
         hardware.nvidia = {
