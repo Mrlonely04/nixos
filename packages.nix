@@ -8,7 +8,7 @@
    neovim
    hyprshot
    rofi
-   dunst
+   mako
    hyprpaper
    pipewire
    wireplumber
