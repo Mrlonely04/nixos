@@ -1,11 +1,11 @@
 anchor=top-right
 font=monospace 12
-background-color=#285577FF
+background-color=#222222
 text-color=#FFFFFFFF
 width=300
 height=200
 border-size=2
-border-color=#4C7899FF
+border-color=#000000
 border-radius=4
 default-timeout=5000
 max-history=20
