@@ -21,14 +21,15 @@
    fastfetch
    networkmanagerapplet
    udiskie
+   wl-clipboard
 
 #     Computer only
-   obs-studio
-   steam
-   protonplus
-   heroic
+#   obs-studio
+#   steam
+#   protonplus
+#   heroic
 
 #     Laptop only
-#   brightnessctl
-#   power-profiles-daemon
+   brightnessctl
+   power-profiles-daemon
 ]

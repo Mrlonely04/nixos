@@ -58,6 +58,7 @@
    home.file.".config/waybar".source = ./config/waybar;
    home.file.".config/nvim".source = ./config/nvim;
    home.file.".config/mako".source = ./config/mako;
+   home.file.".config/sway".source = ./config/sway;
    home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".twilight
    ];

@@ -26,7 +26,8 @@
 
 #  Set your time zone.
    time.timeZone = "America/New_York";
-	
+
+#  Hyprland	
    programs.hyprland = {
 	   enable = true;
 		withUWSM = true;
@@ -38,7 +39,14 @@
    programs.zsh.enable = true;
    users.extraUsers.nykta = {
          shell = pkgs.zsh;
-      };
+   };
+
+# Swayfx
+   programs.sway = {
+      enable = true;
+      package = pkgs.swayfx;
+   };
+   services.gnome.gnome-keyring.enable = true;
 
 #   GPU Drivers
   hardware.graphics.enable32Bit = true;
