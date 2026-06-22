@@ -17,7 +17,6 @@
    hyprcursor
    rose-pine-hyprcursor
    vesktop
-   discord
    hyprpicker
    pavucontrol
    fastfetch

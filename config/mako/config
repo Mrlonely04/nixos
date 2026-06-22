@@ -11,3 +11,4 @@ default-timeout=5000
 max-history=20
 group-by=summary
 icons=1
+

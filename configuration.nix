@@ -27,7 +27,12 @@
 #  Set your time zone.
    time.timeZone = "America/New_York";
 
-#  Hyprland	
+##  Window Managers  ##	
+
+#   Mango
+   programs.mango.enable = true;
+
+#   Hyprland
    programs.hyprland = {
 	   enable = true;
 		withUWSM = true;
@@ -40,18 +45,17 @@
    users.extraUsers.nykta = {
          shell = pkgs.zsh;
    };
-
-#  Qtile
-   services.xserver.windowManager.qtile = {
-      enable = true;
-   };
 #  Screen share
    xdg.portal = {
       enable = true;
+      wlr.enable = lib.mkForce true;
       extraPortals = with pkgs; [
-         xdg-desktop-portal-wlr
          xdg-desktop-portal-gtk
       ];
+   };
+   programs = {
+      xwayland.enable = true;
+      gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
    };
 
 #  Env Variables
