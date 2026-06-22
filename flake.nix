@@ -12,6 +12,7 @@
 		   url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 
+
 		};
 
 
@@ -21,6 +22,7 @@
 		nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
 			modules = [
+         
 				./configuration.nix
 				home-manager.nixosModules.home-manager
 				{
@@ -32,7 +34,7 @@
                   extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
 					};
 				}
-
+         
 			];
 		};
 	};		

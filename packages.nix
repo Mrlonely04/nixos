@@ -8,6 +8,7 @@
    neovim
    hyprshot
    rofi
+   grim
    mako
    hyprpaper
    pipewire
@@ -16,6 +17,7 @@
    hyprcursor
    rose-pine-hyprcursor
    vesktop
+   discord
    hyprpicker
    pavucontrol
    fastfetch

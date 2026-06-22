@@ -5,7 +5,7 @@
    //"width": 1366, // Waybar width
    // Choose the order of the modules
     
-   "modules-left": ["hyprland/workspaces", "custom/spotify"],
+   "modules-left": ["hyprland/workspaces", "sway/workspaces", "custom/spotify"],
    "modules-center": ["clock", "power-profiles-daemon"],
    "modules-right": ["tray", "pulseaudio", "cpu", "memory",  "battery"],
    "hyprland/workspaces": {
@@ -24,6 +24,12 @@
          "default": ""
       }
    },
+
+   "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true
+   },
+   
    "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip": true,

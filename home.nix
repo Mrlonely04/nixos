@@ -1,9 +1,13 @@
 { config, pkgs, system, inputs, ... }:
 {
+
+# User
    home.username = "nykta";
 	home.homeDirectory = "/home/nykta";
 	home.stateVersion = "25.11";
-	programs.git = {
+
+# Git
+   programs.git = {
       enable = true;
       settings = {
          user = {  
@@ -13,6 +17,8 @@
          init.defaultBranch = "main";
       };
    };
+
+# ZSH
 	programs.zsh = {
 		enable = true;
       enableCompletion = true;
@@ -37,20 +43,21 @@
          theme = "robbyrussell";
       };
    };
-      programs.obs-studio = {
-         enable = true;
-         package = (
-            pkgs.obs-studio.override {
-               cudaSupport = true;
-            }
-         );
-         plugins = with pkgs.obs-studio-plugins; [
-            obs-backgroundremoval
-            obs-pipewire-audio-capture
-         ];
-      };
 
-	
+# OBS STUDIO
+   programs.obs-studio = {
+      enable = true;
+      package = (
+         pkgs.obs-studio.override {
+            cudaSupport = true;
+         }
+      );
+      plugins = with pkgs.obs-studio-plugins; [
+         obs-backgroundremoval
+         obs-pipewire-audio-capture
+      ];
+   };
+
 
 	
    home.file.".config/hypr".source = ./config/hypr;
@@ -58,7 +65,7 @@
    home.file.".config/waybar".source = ./config/waybar;
    home.file.".config/nvim".source = ./config/nvim;
    home.file.".config/mako".source = ./config/mako;
-   home.file.".config/sway".source = ./config/sway;
+   home.file.".config/qtile".source = ./config/qtile;
    home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".twilight
    ];

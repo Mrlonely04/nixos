@@ -41,12 +41,28 @@
          shell = pkgs.zsh;
    };
 
-# Swayfx
-   programs.sway = {
+#  Qtile
+   services.xserver.windowManager.qtile = {
       enable = true;
-      package = pkgs.swayfx;
    };
-   services.gnome.gnome-keyring.enable = true;
+#  Screen share
+   xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+         xdg-desktop-portal-wlr
+         xdg-desktop-portal-gtk
+      ];
+   };
+
+#  Env Variables
+   environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = 1;
+      NIXOS_OZONE_WL = 1;
+      MOZ_ENABLE_WAYLAND = 1;
+      GDK_BACKEND = "wayland,x11";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      SDL_VIDEODRIVER = "wayland,x11";
+   };
 
 #   GPU Drivers
   hardware.graphics.enable32Bit = true;
