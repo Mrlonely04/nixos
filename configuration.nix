@@ -31,11 +31,11 @@
 ##  Window Managers  ##	
 
 #   Qtile
-   services.xserver.windowManager.qtile = {
-      enable = true;
-      package = qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
+#   services.xserver.windowManager.qtile = {
+#      enable = true;
+#      package = qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
     #  extraPackages = ps: [qtile-extras-flake];
-   };
+#   };
 
 #   Hyprland
    programs.hyprland = {

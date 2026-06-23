@@ -1,4 +1,4 @@
-{inputs, qtile-flake, pkgs, ...}: let
+{inputs, qtile-flake, pkgs, qtile-extras-flake, ...}: let
   qtile-extras-flake = pkgs.python3Packages.qtile-extras.overridePythonAttrs {
     src = inputs.qtile-extras-flake.outPath;
     doCheck = false;

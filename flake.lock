@@ -72,7 +72,7 @@
         "type": "github"
       }
     },
-    "qtile-extra-flake": {
+    "qtile-extras-flake": {
       "flake": false,
       "locked": {
         "lastModified": 1781927860,
@@ -112,7 +112,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "qtile-extra-flake": "qtile-extra-flake",
+        "qtile-extras-flake": "qtile-extras-flake",
         "qtile-flake": "qtile-flake",
         "zen-browser": "zen-browser"
       }

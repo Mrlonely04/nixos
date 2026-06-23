@@ -16,7 +16,7 @@
          url = "github:qtile/qtile";
          inputs.nixpkgs.follows = "nixpkgs";
       };
-      qtile-extra-flake = {
+      qtile-extras-flake = {
          url = "github:elparaguayo/qtile-extras";
          flake = false;
       };
