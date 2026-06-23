@@ -23,6 +23,9 @@
    networkmanagerapplet
    udiskie
    wl-clipboard
+   bluez
+   upower
+   door-knocker
 
 #     Computer only
 #   obs-studio

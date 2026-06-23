@@ -12,22 +12,25 @@
 		   url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-      mangowm = {
-         url = "github:mangowm/mango";
+      qtile-flake = {
+         url = "github:qtile/qtile";
          inputs.nixpkgs.follows = "nixpkgs";
+      };
+      qtile-extra-flake = {
+         url = "github:elparaguayo/qtile-extras";
+         flake = false;
       };
 
 
 	};
 	
-	outputs = { self, nixpkgs, home-manager, zen-browser, mangowm, ... } @ inputs: {
-		nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
+	outputs = { self, nixpkgs, home-manager, zen-browser, qtile-flake, ... } @ inputs: {
+		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
+         specialArgs = {inherit inputs qtile-flake;}; 
 			modules = [
 				./configuration.nix
 				home-manager.nixosModules.home-manager
-            mangowm.nixosModules.mango
-            
 				{
 					home-manager = {
 						useGlobalPkgs = true;

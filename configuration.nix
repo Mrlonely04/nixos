@@ -2,12 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, qtile-flake, ... }: 
 
 {
    imports =
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
+         ./wm/qtile.nix
       ];
 
 #  Use the systemd-boot EFI boot loader.
@@ -18,7 +19,7 @@
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
    boot.loader.efi.canTouchEfiVariables = true;
-   services.udisks2.enable = true;
+ #  services.udisks2.enable = true;
 
    networking.hostName = "nykta"; # Define your hostname.
 #  Configure network connections interactively with nmcli or nmtui.
@@ -29,8 +30,12 @@
 
 ##  Window Managers  ##	
 
-#   Mango
-   programs.mango.enable = true;
+#   Qtile
+   services.xserver.windowManager.qtile = {
+      enable = true;
+      package = qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    #  extraPackages = ps: [qtile-extras-flake];
+   };
 
 #   Hyprland
    programs.hyprland = {

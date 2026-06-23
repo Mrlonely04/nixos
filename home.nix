@@ -23,7 +23,7 @@
 		enable = true;
       enableCompletion = true;
 		shellAliases = {
-			up = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
+			up = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nykta";
          clean = "nix-collect-garbage -d";
          Sclean = "sudo nix-collect-garbage -d";
          list-gen = "nixos-rebuild list-generations";

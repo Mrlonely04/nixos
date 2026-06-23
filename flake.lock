@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1749398372,
-        "narHash": "sha256-tYBdgS56eXYaWVW3fsnPQ/nFlgWi/Z2Ymhyu21zVM98=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "9305fe4e5c2a6fcf5ba6a3ff155720fbe4076569",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -59,28 +41,6 @@
         "type": "github"
       }
     },
-    "mangowm": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "scenefx": "scenefx"
-      },
-      "locked": {
-        "lastModified": 1782094226,
-        "narHash": "sha256-tl2VUirG80viYkPJrsyuUQdhJGzoUJDXu5xH7EeCq54=",
-        "owner": "mangowm",
-        "repo": "mango",
-        "rev": "eb9b5ca8cc9864cea4e05a410d18c942230c4179",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mangowm",
-        "repo": "mango",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1780243769,
@@ -94,21 +54,6 @@
         "id": "nixpkgs",
         "ref": "nixos-unstable",
         "type": "indirect"
-      }
-    },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1748740939,
-        "narHash": "sha256-rQaysilft1aVMwF14xIdGS3sj1yHlI6oKQNBRTF40cc=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "656a64127e9d791a334452c6b6606d17539476e2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
       }
     },
     "nixpkgs_2": {
@@ -127,33 +72,49 @@
         "type": "github"
       }
     },
-    "root": {
-      "inputs": {
-        "home-manager": "home-manager",
-        "mangowm": "mangowm",
-        "nixpkgs": "nixpkgs",
-        "zen-browser": "zen-browser"
+    "qtile-extra-flake": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781927860,
+        "narHash": "sha256-k/Ub6mu4gpoQ6vMrXNQaAW1kcSRvBaVw+z4BI1IRY0Y=",
+        "owner": "elparaguayo",
+        "repo": "qtile-extras",
+        "rev": "15ad5a1af19985c19b432cacda61b2aba959180e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elparaguayo",
+        "repo": "qtile-extras",
+        "type": "github"
       }
     },
-    "scenefx": {
+    "qtile-flake": {
       "inputs": {
         "nixpkgs": [
-          "mangowm",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1750785057,
-        "narHash": "sha256-tGX6j4W91rcb+glXJo43sjPI9zQvPotonknG1BdihR4=",
-        "owner": "wlrfx",
-        "repo": "scenefx",
-        "rev": "3a6cfb12e4ba97b43326357d14f7b3e40897adfc",
+        "lastModified": 1781685077,
+        "narHash": "sha256-d2oFd8xCCa2x29cf22Tj9xnC5wtdlDkJj8V2mCfB390=",
+        "owner": "qtile",
+        "repo": "qtile",
+        "rev": "f94a0dbb17b8ad94cf858de681c732a6d45ea0e9",
         "type": "github"
       },
       "original": {
-        "owner": "wlrfx",
-        "repo": "scenefx",
+        "owner": "qtile",
+        "repo": "qtile",
         "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "qtile-extra-flake": "qtile-extra-flake",
+        "qtile-flake": "qtile-flake",
+        "zen-browser": "zen-browser"
       }
     },
     "zen-browser": {
