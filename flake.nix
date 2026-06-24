@@ -12,22 +12,13 @@
 		   url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-      qtile-flake = {
-         url = "github:qtile/qtile";
-         inputs.nixpkgs.follows = "nixpkgs";
-      };
-      qtile-extras-flake = {
-         url = "github:elparaguayo/qtile-extras";
-         flake = false;
-      };
 
 
 	};
 	
-	outputs = { self, nixpkgs, home-manager, zen-browser, qtile-flake, ... } @ inputs: {
+	outputs = { self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
 		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
-         specialArgs = {inherit inputs qtile-flake;}; 
 			modules = [
 				./configuration.nix
 				home-manager.nixosModules.home-manager

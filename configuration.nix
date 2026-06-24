@@ -2,13 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, qtile-flake, ... }: 
+{ config, lib, pkgs, ... }: 
 
 {
    imports =
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
-         ./wm/qtile.nix
+         ./wm/hyprland.nix
       ];
 
 #  Use the systemd-boot EFI boot loader.
@@ -28,21 +28,8 @@
 #  Set your time zone.
    time.timeZone = "America/New_York";
 
-##  Window Managers  ##	
 
-#   Qtile
-#   services.xserver.windowManager.qtile = {
-#      enable = true;
-#      package = qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    #  extraPackages = ps: [qtile-extras-flake];
-#   };
 
-#   Hyprland
-   programs.hyprland = {
-	   enable = true;
-		withUWSM = true;
-		xwayland.enable = true;
-	};
    services.power-profiles-daemon.enable =true;
    services.displayManager.ly.enable = true;
    nixpkgs.config.allowUnfree = true;
@@ -50,29 +37,6 @@
    users.extraUsers.nykta = {
          shell = pkgs.zsh;
    };
-#  Screen share
-   xdg.portal = {
-      enable = true;
-      wlr.enable = lib.mkForce true;
-      extraPortals = with pkgs; [
-         xdg-desktop-portal-gtk
-      ];
-   };
-   programs = {
-      xwayland.enable = true;
-      gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
-   };
-
-#  Env Variables
-   environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = 1;
-      NIXOS_OZONE_WL = 1;
-      MOZ_ENABLE_WAYLAND = 1;
-      GDK_BACKEND = "wayland,x11";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      SDL_VIDEODRIVER = "wayland,x11";
-   };
-
 #   GPU Drivers
   hardware.graphics.enable32Bit = true;
   hardware.graphics.enable = true;
