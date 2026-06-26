@@ -3,25 +3,30 @@
 	
 	inputs = {
 	   nixpkgs.url = "nixpkgs/nixos-unstable";
-         zen-browser = {
-            url = "github:0xc000022070/zen-browser-flake";
-            inputs = {
-            };
+      zen-browser = {
+         url = "github:0xc000022070/zen-browser-flake";
+         inputs = {
          };
+      };
       home-manager = {
 		   url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+      mangowm = {
+         url = "github:mangowm/mango";
+         inputs.nixpkgs.follows = "nixpkgs";
+      };
 
 
 	};
 	
-	outputs = { self, nixpkgs, home-manager, zen-browser, ... } @ inputs: {
+	outputs = { self, nixpkgs, home-manager, zen-browser, mangowm, ... } @ inputs: {
 		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
 			modules = [
 				./configuration.nix
 				home-manager.nixosModules.home-manager
+            mangowm.nixosModules.mango
 				{
 					home-manager = {
 						useGlobalPkgs = true;
@@ -31,6 +36,7 @@
                   extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
 					};
 				}
+
          
 			];
 		};

@@ -3,7 +3,7 @@
    zsh
    oh-my-zsh
    wget
-   foot
+   kitty
    waybar
    neovim
    hyprshot
@@ -23,9 +23,11 @@
    networkmanagerapplet
    udiskie
    wl-clipboard
-   bluez
-   upower
    door-knocker
+
+#   WAYLE SPECIF
+   wayle
+   bluez
 
 #     Computer only
 #   obs-studio
@@ -36,4 +38,5 @@
 #     Laptop only
    brightnessctl
    power-profiles-daemon
+   tlp
 ]

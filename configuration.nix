@@ -2,15 +2,15 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }: 
+{ inputs, config, lib, pkgs, ... }: 
 
 {
    imports =
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./wm/hyprland.nix
+         ./system/nvidia.nix
       ];
-
 #  Use the systemd-boot EFI boot loader.
    boot.loader.limine.enable = true;
    boot.loader.limine.extraEntries = ''
@@ -28,27 +28,16 @@
 #  Set your time zone.
    time.timeZone = "America/New_York";
 
-
-
-   services.power-profiles-daemon.enable =true;
+   programs.mango.enable = true;
+   
+   services.upower.enable = true;
+   services.power-profiles-daemon.enable = true;
    services.displayManager.ly.enable = true;
    nixpkgs.config.allowUnfree = true;
    programs.zsh.enable = true;
    users.extraUsers.nykta = {
          shell = pkgs.zsh;
    };
-#   GPU Drivers
-  hardware.graphics.enable32Bit = true;
-  hardware.graphics.enable = true;
-     services.xserver.videoDrivers = ["nvidia"];
-        hardware.nvidia = {
-           modesetting.enable = true;
-           powerManagement.enable = false;
-           powerManagement.finegrained = false;
-           open = true;
-           nvidiaSettings = true;
-           package = config.boot.kernelPackages.nvidiaPackages.latest;
-         };
    
   services.flatpak.enable = true;
 

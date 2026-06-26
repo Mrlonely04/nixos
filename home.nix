@@ -1,6 +1,7 @@
 { config, pkgs, system, inputs, ... }:
 {
-
+    imports = [
+    ];
 # User
    home.username = "nykta";
 	home.homeDirectory = "/home/nykta";
@@ -65,6 +66,7 @@
    home.file.".config/waybar".source = ./config/waybar;
    home.file.".config/nvim".source = ./config/nvim;
    home.file.".config/mako".source = ./config/mako;
+   home.file.".config/mango".source = ./config/mango;
    home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".twilight
    ];
