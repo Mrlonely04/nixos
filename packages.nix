@@ -24,10 +24,9 @@
    udiskie
    wl-clipboard
    door-knocker
-
-#   WAYLE SPECIF
-   wayle
-   bluez
+   wlr-randr
+   awww
+   eww
 
 #     Computer only
 #   obs-studio
@@ -38,5 +37,4 @@
 #     Laptop only
    brightnessctl
    power-profiles-daemon
-   tlp
 ]

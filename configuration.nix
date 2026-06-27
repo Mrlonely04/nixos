@@ -23,13 +23,14 @@
 
    networking.hostName = "nykta"; # Define your hostname.
 #  Configure network connections interactively with nmcli or nmtui.
-   networking.networkmanager.enable = true;
 
 #  Set your time zone.
    time.timeZone = "America/New_York";
 
    programs.mango.enable = true;
    
+   hardware.bluetooth.enable = true;
+   networking.networkmanager.enable = true;
    services.upower.enable = true;
    services.power-profiles-daemon.enable = true;
    services.displayManager.ly.enable = true;
@@ -39,8 +40,7 @@
          shell = pkgs.zsh;
    };
    
-  services.flatpak.enable = true;
-
+   services.flatpak.enable = true;
 
 #  Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.nykta = {

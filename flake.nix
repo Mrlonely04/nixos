@@ -16,17 +16,23 @@
          url = "github:mangowm/mango";
          inputs.nixpkgs.follows = "nixpkgs";
       };
+      noctalia = {
+         url = "github:noctalia-dev/noctalia/legacy-v4";
+         inputs.nixpkgs.follows = "nixpkgs";
+      };
 
 
 	};
 	
-	outputs = { self, nixpkgs, home-manager, zen-browser, mangowm, ... } @ inputs: {
+	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, ... }: {
 		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
+         specialArgs = { inherit inputs; };
 			modules = [
 				./configuration.nix
 				home-manager.nixosModules.home-manager
             mangowm.nixosModules.mango
+            ./wm/noctalia.nix
 				{
 					home-manager = {
 						useGlobalPkgs = true;
