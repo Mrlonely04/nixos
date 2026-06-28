@@ -61,12 +61,18 @@
 
 
 	
-   home.file.".config/hypr".source = ./config/hypr;
    home.file.".config/foot".source = ./config/foot;
    home.file.".config/waybar".source = ./config/waybar;
    home.file.".config/nvim".source = ./config/nvim;
    home.file.".config/mako".source = ./config/mako;
-   home.file.".config/mango".source = ./config/mango;
+   xdg.configFile."mango" = {
+      source = config.lib.file.mkOutOfStoreSymlink "/home/nykta/nixos-dotfiles/config/mango";
+      recursive = true;
+   };
+   xdg.configFile."hypr" = {
+      source = config.lib.file.mkOutOfStoreSymlink "/home/nykta/nixos-dotfiles/config/hypr";
+      recursive = true;
+   };
    home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".twilight
    ];
