@@ -29,10 +29,10 @@
    eww
 
 #     Computer only
-#   obs-studio
-#   steam
-#   protonplus
-#   heroic
+   obs-studio
+   steam
+   protonplus
+   heroic
 
 #     Laptop only
    brightnessctl
