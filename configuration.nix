@@ -9,38 +9,28 @@
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./wm/hyprland.nix
+         ./wm/mango.nix
          ./system/nvidia.nix
+         ./system/services.nix
       ];
-#  Use the systemd-boot EFI boot loader.
-   boot.loader.limine.enable = true;
    boot.loader.limine.extraEntries = ''
       /Windows_11
       protocol: efi
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
-   boot.loader.efi.canTouchEfiVariables = true;
- #  services.udisks2.enable = true;
 
    networking.hostName = "nykta"; # Define your hostname.
-#  Configure network connections interactively with nmcli or nmtui.
 
-#  Set your time zone.
    time.timeZone = "America/New_York";
 
-   programs.mango.enable = true;
    
-   hardware.bluetooth.enable = true;
-   networking.networkmanager.enable = true;
    services.upower.enable = true;
    services.power-profiles-daemon.enable = true;
-   services.displayManager.ly.enable = true;
-   nixpkgs.config.allowUnfree = true;
    programs.zsh.enable = true;
    users.extraUsers.nykta = {
          shell = pkgs.zsh;
    };
    
-   services.flatpak.enable = true;
 
 #  Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.nykta = {
