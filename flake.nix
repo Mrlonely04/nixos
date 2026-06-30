@@ -3,23 +3,17 @@
 	
 	inputs = {
 	   nixpkgs.url = "nixpkgs/nixos-unstable";
-      zen-browser = {
-         url = "github:0xc000022070/zen-browser-flake";
-         inputs = {
-         };
-      };
-      home-manager = {
-		   url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-      mangowm = {
-         url = "github:mangowm/mango";
-         inputs.nixpkgs.follows = "nixpkgs";
-      };
-      noctalia = {
-         url = "github:noctalia-dev/noctalia";
-         inputs.nixpkgs.follows = "nixpkgs";
-      };
+      #Zen-Browser
+      zen-browser.url = "github:0xc000022070/zen-browser-flake";
+      #Home-Manager
+		home-manager.url = "github:nix-community/home-manager";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+      #Mangowm 
+      mangowm.url = "github:mangowm/mango";
+      mangowm.inputs.nixpkgs.follows = "nixpkgs";
+      #Noctalia
+      noctalia.url = "github:noctalia-dev/noctalia";
+      noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
 
 	};
