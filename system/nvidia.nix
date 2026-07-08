@@ -2,7 +2,7 @@
 {
    hardware.graphics.enable32Bit = true;
    hardware.graphics.enable = true;
-   services.xserver.videoDrivers = ["nviidia"];
+   services.xserver.videoDrivers = ["nvidia"];
       hardware.nvidia = {
          modesetting.enable = true;
          powerManagement.enable = false;
