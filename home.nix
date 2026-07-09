@@ -30,6 +30,7 @@
          list-gen = "nixos-rebuild list-generations";
          add-hc = "git add -f /home/nykta/nixos-dotfiles/hardware-configuration.nix";
          rm-hc = "git rm --cached hardware-configuration.nix";
+         sober = "WAYLAND_DISPLAY=wayland-1 flatpak run org.vinegarhq.Sober";
 		};
 		profileExtra = ''
 			if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTR" = 1 ]; then

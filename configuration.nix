@@ -24,7 +24,6 @@
 
    time.timeZone = "America/New_York";
 
-   
    services.upower.enable = true;
    services.power-profiles-daemon.enable = true;
    programs.zsh.enable = true;

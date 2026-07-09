@@ -27,6 +27,7 @@
    wlr-randr
    awww
    eww
+   thunar
 
 #     Computer only
    obs-studio
