@@ -90,15 +90,15 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1783520205,
-        "narHash": "sha256-LvVCy/ojJkDizHP6114b5zG7iAifxOdavh64B0ziw3U=",
-        "owner": "Soliprem",
+        "lastModified": 1783746309,
+        "narHash": "sha256-zAR+fbLTxCISXSoYxYdyttapdzwnxcdfwwEClP6zHFU=",
+        "owner": "mangowm",
         "repo": "mango",
-        "rev": "9c8c9e05400214634d8cb238daf0e16c757ea5ac",
+        "rev": "bcb4f12e0b6632cac0c9716ab372c0ef8a63045a",
         "type": "github"
       },
       "original": {
-        "owner": "Soliprem",
+        "owner": "mangowm",
         "repo": "mango",
         "type": "github"
       }
