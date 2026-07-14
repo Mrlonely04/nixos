@@ -19,8 +19,6 @@
    boot.loader.limine.enable = true;
    boot.loader.efi.canTouchEfiVariables = true;
    
-   #Wayland Specif Things
-   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
    #laptop services
    services.upower.enable = true;
