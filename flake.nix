@@ -9,7 +9,7 @@
 		home-manager.url = "github:nix-community/home-manager";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
       #Mangowm 
-      mangowm.url = "github:mangowm/mango";
+      mangowm.url = "github:mangowm/mango/0.14.4";
       mangowm.inputs.nixpkgs.follows = "nixpkgs";
       #Noctalia
       noctalia.url = "github:noctalia-dev/noctalia/cachix";

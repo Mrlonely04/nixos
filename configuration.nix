@@ -12,12 +12,20 @@
          ./wm/mango.nix
          ./system/services.nix
          ./system/nvidia.nix
+         ./system/xdg-portals.nix
       ];
    boot.loader.limine.extraEntries = ''
       /Windows_11
       protocol: efi
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
+
+## TEST
+
+
+
+
+## TEST
 
 
    networking.hostName = "nykta"; # Define your hostname.

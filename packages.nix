@@ -20,7 +20,6 @@
    hyprpicker
    pavucontrol
    fastfetch
-   networkmanagerapplet
    udiskie
    wl-clipboard
    door-knocker
@@ -28,6 +27,7 @@
    awww
    eww
    thunar
+   xdg-desktop-portal-wlr
 
 #     Computer only
    obs-studio
