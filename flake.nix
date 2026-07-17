@@ -3,6 +3,8 @@
 	
 	inputs = {
 	   nixpkgs.url = "nixpkgs/nixos-unstable";
+      #Chaotic pkgs
+      chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       #Zen-Browser
       zen-browser.url = "github:0xc000022070/zen-browser-flake";
       #Home-Manager
@@ -18,7 +20,7 @@
 
 	};
 	
-	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, ... }: {
+	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, ... }: {
 		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
 			system = "X86_64-linux";
          specialArgs = { inherit inputs; };
@@ -26,6 +28,7 @@
 				./configuration.nix
 				home-manager.nixosModules.home-manager
             mangowm.nixosModules.mango
+            chaotic.nixosModules.default
             ./wm/noctalia.nix
 				{
 					home-manager = {
