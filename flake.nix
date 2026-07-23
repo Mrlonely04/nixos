@@ -20,28 +20,65 @@
 
 	};
 	
-	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, ... }: {
-		nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
-			system = "X86_64-linux";
-         specialArgs = { inherit inputs; };
-			modules = [
-				./configuration.nix
-				home-manager.nixosModules.home-manager
-            mangowm.nixosModules.mango
-            chaotic.nixosModules.default
-            ./wm/noctalia.nix
-				{
-					home-manager = {
-						useGlobalPkgs = true;
-						useUserPackages = true;
-						users.nykta = import ./home.nix;
-						backupFileExtension = "backup";
-                  extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-					};
-				}
+	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, ... }:
+   {
+#     	nixosConfigurations.nykta = nixpkgs.lib.nixosSystem {
+#			system = "x86_64-linux";
+ #        specialArgs = { inherit inputs; };
+#			modules = [
+#				./configuration.nix
+#				home-manager.nixosModules.home-manager
+ #           mangowm.nixosModules.mango
+  #          chaotic.nixosModules.default
+ #           ./wm/noctalia.nix
+#				{
+#					home-manager = {
+#						useGlobalPkgs = true;
+#						useUserPackages = true;
+#						users.nykta = import ./home.nix;
+#						backupFileExtension = "backup";
+ #                 extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+#					};
+#				}
+#
+    #     
+	#		];
+	#	};
 
-         
-			];
-		};
+      # setting up multi system support
+      nixosConfigurations = {
+         desktop = nixpkgs.lib.nixosSystem  {
+            specialArgs = { inherit inputs; };
+            system = "x86_64-linux";
+            modules = [
+               ./host/desktop
+               home-manager.nixosModules.home-manager
+               mangowm.nixosModules.mango
+               chaotic.nixosModules.default
+               ./wm/noctalia.nix
+               {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.nykta = import ./home/nykta;
+                  home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+               }
+            ];
+         };
+
+         laptop = {
+            specialArgs = { inherit inputs; };
+            system = "x86_64-linux";
+            modules = [
+               ./host/laptop
+               home-manager.nixosModules.home-manager
+               mangowm.nixosModules.mango
+               {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.nykta = import ./home/nykta;
+               }
+            ];
+         };
+      };
 	};		
 }
