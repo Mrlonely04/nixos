@@ -15,26 +15,28 @@
       mangowm.inputs.nixpkgs.follows = "nixpkgs";
       #Noctalia
       noctalia.url = "github:noctalia-dev/noctalia/cachix";
-      noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
 
 	};
 	
 	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, ... }:
+   let
+   system = "x86_64-linux";
+   in
    {
+
 
       # setting up multi system support
       nixosConfigurations = {
 
          desktop = nixpkgs.lib.nixosSystem  {
             specialArgs = { inherit inputs; };
-            system = "x86_64-linux";
+            inherit system;
             modules = [
                ./host/desktop
                home-manager.nixosModules.home-manager
                mangowm.nixosModules.mango
                chaotic.nixosModules.default
-               ./wm/noctalia.nix
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
@@ -46,7 +48,7 @@
 
          laptop = {
             specialArgs = { inherit inputs; };
-            system = "x86_64-linux";
+            inherit system;
             modules = [
                ./host/laptop
                home-manager.nixosModules.home-manager
@@ -55,13 +57,14 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                   home-manager.users.solaris = import ./home/solaris;
+                  home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
                }
             ];
          };
 
          server = {
             specialArgs = { inherit inputs; };
-            system = "x86_64-linux";
+            inherit system;
             modules = [
                ./host/server
                home-manager.nixosModules.home-manager
@@ -70,6 +73,7 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                   home-manager.users.server = import ./home/server;
+                  home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
                }
             ];
          };

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, inputs, ... }: 
 
 {
    imports =
@@ -24,6 +24,16 @@
    # Enables and sets zsh as default shell
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
+
+   # Enables and caches nocatalia
+   environment.systemPackages = [
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+   ];
+   nix.settings = {
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+   };
+
 
    # Sets user
    users.users.solaris = {
