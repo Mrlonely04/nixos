@@ -34,6 +34,12 @@
       extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
    };
 
+   # Enables battery checker
+   services.upower.enable = true;
+
+   # Enables power profile
+   services.power-profiles-daemon.enable = true;
+
 
    # Sets user
    users.users.solaris = {

@@ -21,6 +21,7 @@
          wl-clipboard
          brightnessctl
          power-profiles-daemon
+         upower
       ];
    };
 }

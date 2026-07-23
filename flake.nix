@@ -46,7 +46,7 @@
             ];
          };
 
-         laptop = {
+         laptop = nixpkgs.lib.nixosSystem {
             specialArgs = { inherit inputs; };
             inherit system;
             modules = [
