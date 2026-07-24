@@ -62,17 +62,31 @@
             ];
          };
 
-         server = {
+         homelab = nixpkgs.lib.nixosSystem {
             specialArgs = { inherit inputs; };
             inherit system;
             modules = [
-               ./host/server
+               ./host/homelab
                home-manager.nixosModules.home-manager
-               mangowm.nixosModules.mango
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
-                  home-manager.users.server = import ./home/server;
+                  home-manager.users.gomelab = import ./home/homelab;
+                  home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+               }
+            ];
+         };
+
+         steamMachine = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs; };
+            inherit system;
+            modules = [
+               ./host/steamMachine
+               home-manager.nixosModules.home-manager
+               {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.steamMachine = import ./home/SteamMachine;
                   home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
                }
             ];
