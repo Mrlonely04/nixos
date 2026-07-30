@@ -1,5 +1,7 @@
-{ config, lib, pkgs, inputs, ... }: 
-
+{ config, lib, pkgs, inputs, ... }:
+let 
+spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+in
 {
    imports =
       [ # Include the results of the hardware scan.
@@ -40,6 +42,7 @@
       extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
    };
 
+
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
    # Sets user
@@ -49,6 +52,15 @@
       packages = with pkgs; [
          tree
       ];
+   };
+   programs.spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+         adblockify
+         hidePodcasts
+         shuffle # shuffle+ (special characters are sanitized out of extension names)
+      ];
+      theme = spicePkgs.themes.hazy;
    };
    
 

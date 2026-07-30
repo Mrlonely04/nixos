@@ -15,11 +15,13 @@
       mangowm.inputs.nixpkgs.follows = "nixpkgs";
       #Noctalia
       noctalia.url = "github:noctalia-dev/noctalia/cachix";
+      #Spicetify
+      spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
 
 	};
 	
-	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, mangowm, chaotic, spicetify-nix, ... }:
    let
    system = "x86_64-linux";
    in
@@ -37,6 +39,7 @@
                home-manager.nixosModules.home-manager
                mangowm.nixosModules.mango
                chaotic.nixosModules.default
+               spicetify-nix.nixosModules.spicetify 
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
