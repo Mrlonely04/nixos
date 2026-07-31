@@ -56,6 +56,7 @@
                ./host/laptop
                home-manager.nixosModules.home-manager
                mangowm.nixosModules.mango
+               spicetify-nix.nixosModules.spicetify 
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;

@@ -36,12 +36,13 @@
       };
       
    };
-   
+
    # Packages that will come with the user
    home.packages = with pkgs; [
       git
       tree
       htop
       inputs.zen-browser.packages."${system}".twilight
+      vesktop
    ];
 }

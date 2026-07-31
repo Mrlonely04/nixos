@@ -45,6 +45,7 @@ in
 
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
+
    # Sets user
    users.users.nykta = {
       isNormalUser = true;
@@ -53,6 +54,8 @@ in
          tree
       ];
    };
+
+   #Enables spicetify and installs spotify
    programs.spicetify = {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
