@@ -7,6 +7,7 @@ in
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./modules
+         ./../../modules/core
       ];
 
    # Adds windows to boot options
@@ -40,6 +41,13 @@ in
    nix.settings = {
       extra-substituters = [ "https://noctalia.cachix.org" ];
       extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+   };
+   
+   config = {
+      networking = {
+         networkmanager.enable = true;
+         hostName = "nykta";
+      };
    };
 
 

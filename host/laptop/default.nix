@@ -7,10 +7,12 @@ in
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./modules
+         ./../../modules/core
       ];
 
    # Defines devices name
    networking.hostName = "solaris"; 
+   networking.networkmanager.enable = true;
 
    # Time zone obv
    time.timeZone = "America/New_York";
@@ -41,8 +43,7 @@ in
 
    # Enables power profile
    services.power-profiles-daemon.enable = true;
-
-
+   
    # Sets user
    users.users.solaris = {
       isNormalUser = true;
