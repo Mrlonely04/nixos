@@ -43,14 +43,6 @@ in
       extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
    };
    
-   config = {
-      networking = {
-         networkmanager.enable = true;
-         hostName = "nykta";
-      };
-   };
-
-
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
 
