@@ -44,7 +44,6 @@
       htop
       inputs.zen-browser.packages."${system}".twilight
       vesktop
-      obs-studio
       protonplus
       heroic
    ];

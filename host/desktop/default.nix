@@ -22,6 +22,7 @@ in
 
    # Defines devices name
    networking.hostName = "nykta"; # Define your hostname.
+   networking.networkmanager.enable = true;
 
    # Time zone obv
    time.timeZone = "America/New_York";
