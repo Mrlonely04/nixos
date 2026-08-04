@@ -18,6 +18,7 @@
          exec_after = "enable_notifications.sh";
          chooser_type = "dmenu";
          chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
+         #chooser_cmd = "noctalia dmenu";
          max_fps = "60";
       };
    };
