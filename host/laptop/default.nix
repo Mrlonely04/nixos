@@ -1,7 +1,4 @@
 { config, lib, pkgs, inputs, ... }: 
-let 
-spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in
 {
    imports =
       [ # Include the results of the hardware scan.
@@ -55,19 +52,6 @@ in
          tree
       ];
    };
-
-   #Enables spicetify and installs spotify
-  # programs.spicetify = {
-   #   enable = true;
-    #  enabledExtensions = with spicePkgs.extensions; [
-     #    adblockify
-      #   hidePodcasts
-       #  shuffle # shuffle+ (special characters are sanitized out of extension names)
-     # ];
-    #  theme = spicePkgs.themes.hazy;
-   #};
-
-   
 
    nix.settings.experimental-features = ["nix-command" "flakes" ];
 
