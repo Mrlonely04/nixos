@@ -6,8 +6,11 @@ in
    imports =
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
-         ./modules
          ./../../modules/core
+         ./../../modules/common/laptop
+         ./../../modules/common/spotify
+         ./../../modules/common/mango
+
       ];
 
    # Defines devices name
@@ -54,15 +57,15 @@ in
    };
 
    #Enables spicetify and installs spotify
-   programs.spicetify = {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-         adblockify
-         hidePodcasts
-         shuffle # shuffle+ (special characters are sanitized out of extension names)
-      ];
-      theme = spicePkgs.themes.hazy;
-   };
+  # programs.spicetify = {
+   #   enable = true;
+    #  enabledExtensions = with spicePkgs.extensions; [
+     #    adblockify
+      #   hidePodcasts
+       #  shuffle # shuffle+ (special characters are sanitized out of extension names)
+     # ];
+    #  theme = spicePkgs.themes.hazy;
+   #};
 
    
 
