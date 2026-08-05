@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 {
    hardware.graphics.enable32Bit = true;
    hardware.graphics.enable = true;

@@ -4,23 +4,10 @@
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./../../modules/core
-         ./../../modules/common/flatpak
-         ./../../modules/common/gaming
-         ./../../modules/common/spotify
-         ./../../modules/common/mango
-         ./../../modules/common/vm
       ];
 
-   # Adds windows to boot options
-   boot.loader.limine.extraEntries = ''
-      /Windows_11
-      protocol: efi
-      path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
-   '';
-
-
    # Defines devices name
-   networking.hostName = "nykta"; # Define your hostname.
+   networking.hostName = "homelab"; # Define your hostname.
    networking.networkmanager.enable = true;
 
    # Time zone obv
@@ -47,7 +34,7 @@
    users.defaultUserShell = pkgs.zsh;
 
    # Sets user
-   users.users.nykta = {
+   users.users.homelab = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [

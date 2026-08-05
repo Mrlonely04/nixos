@@ -72,6 +72,7 @@
             modules = [
                ./host/homelab
                home-manager.nixosModules.home-manager
+               mangowm.nixosModules.mango
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
