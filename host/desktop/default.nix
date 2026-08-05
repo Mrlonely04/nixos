@@ -1,13 +1,13 @@
 { config, lib, pkgs, inputs, ... }:
-let 
-spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in
 {
    imports =
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
-         ./modules
          ./../../modules/core
+         ./../../modules/common/flatpak
+         ./../../modules/common/gaming
+         ./../../modules/common/spotify
+         ./../../modules/common/mango
       ];
 
    # Adds windows to boot options
@@ -17,8 +17,6 @@ in
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
 
-   # Declares cachyos as kernal
-   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
    # Defines devices name
    networking.hostName = "nykta"; # Define your hostname.
@@ -55,18 +53,6 @@ in
          tree
       ];
    };
-
-   #Enables spicetify and installs spotify
-   programs.spicetify = {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-         adblockify
-         hidePodcasts
-         shuffle # shuffle+ (special characters are sanitized out of extension names)
-      ];
-      theme = spicePkgs.themes.hazy;
-   };
-   
 
    nix.settings.experimental-features = ["nix-command" "flakes" ];
 
