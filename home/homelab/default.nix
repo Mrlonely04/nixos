@@ -1,8 +1,7 @@
 { config, pkgs, inputs, system, ... }: 
 {
    imports = [
-      ./programs
-      ./services
+      ./../modules/git
    ];
 
    # Basic user info
@@ -17,7 +16,7 @@
       enableCompletion = true;
 		shellAliases = {
          update = "nix flake update";
-			rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#desktop";
+			rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#laptop";
          clean = "nix-collect-garbage -d";
          Sclean = "sudo nix-collect-garbage -d";
          list-gen = "nixos-rebuild list-generations";

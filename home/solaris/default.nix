@@ -1,7 +1,7 @@
 { config, pkgs, inputs, system, ... }: 
 {
    imports = [
-      ./programs
+      ./../modules/git
       ./services
    ];
 
