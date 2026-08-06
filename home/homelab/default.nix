@@ -36,5 +36,6 @@
       git
       tree
       htop
+      docker
    ];
 }
