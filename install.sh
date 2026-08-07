@@ -6,5 +6,5 @@ read system
 
 echo "building $system!"
 
-sudo nixos-rebuild switch --flake ~/nixos-dotfiles#$system
+sudo nixos-rebuild switch --flake ~/nixos#$system
 

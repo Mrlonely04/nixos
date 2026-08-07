@@ -4,11 +4,11 @@
    home.file.".config/nvim".source = ./config/nvim;
    home.file.".config/mako".source = ./config/mako;
    xdg.configFile."mango" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/solaris/nixos-dotfiles/home/solaris/services/config/mango";
+      source = config.lib.file.mkOutOfStoreSymlink "/home/solaris/nixos/home/solaris/services/config/mango";
       recursive = true;
    };
    xdg.configFile."hypr" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/solaris/nixos-dotfiles/home/solaris/services/config/hypr";
+      source = config.lib.file.mkOutOfStoreSymlink "/home/solaris/nixos/home/solaris/services/config/hypr";
       recursive = true;
    };
 

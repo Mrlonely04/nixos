@@ -18,7 +18,7 @@
       enableCompletion = true;
 		shellAliases = {
          update = "nix flake update";
-			rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#desktop";
+			rebuild = "sudo nixos-rebuild switch --flake ~/nixos#desktop";
          clean = "nix-collect-garbage -d";
          Sclean = "sudo nix-collect-garbage -d";
          list-gen = "nixos-rebuild list-generations";
