@@ -3,6 +3,7 @@
    imports = [
       ./../modules/obs
       ./../modules/git
+      ./../modules/vscode
       ./services
    ];
 
