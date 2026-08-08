@@ -48,5 +48,7 @@
       vesktop
       protonplus
       heroic
+      prismlauncher
+      bottles
    ];
 }
