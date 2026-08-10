@@ -6,7 +6,8 @@
          ./../../modules/core
          ./../../modules/common/laptop
          ./../../modules/common/spotify
-         ./../../modules/common/mango
+         ./../../modules/common/mango 
+         ./../../modules/common/noctalia
 
       ];
 
@@ -30,13 +31,13 @@
    users.defaultUserShell = pkgs.zsh;
 
    # Enables and caches nocatalia
-   environment.systemPackages = [
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-   ];
-   nix.settings = {
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-   };
+   #environment.systemPackages = [
+   #   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+   #];
+   #nix.settings = {
+   #   extra-substituters = [ "https://noctalia.cachix.org" ];
+   #   extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+   #};
 
    # Enables battery checker
    services.upower.enable = true;

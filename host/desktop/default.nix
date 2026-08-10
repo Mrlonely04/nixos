@@ -8,6 +8,7 @@
          ./../../modules/common/gaming
          ./../../modules/common/spotify
          ./../../modules/common/mango
+         ./../../modules/common/noctalia
          ./../../modules/common/vm
       ];
 
@@ -35,13 +36,13 @@
    ];
 
    # Enables and caches nocatalia
-   environment.systemPackages = [
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-   ];
-   nix.settings = {
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-   };
+   #environment.systemPackages = [
+   #   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+   #];
+   #nix.settings = {
+   #   extra-substituters = [ "https://noctalia.cachix.org" ];
+   #   extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+   #};
    
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
