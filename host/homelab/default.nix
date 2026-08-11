@@ -4,6 +4,7 @@
       [ # Include the results of the hardware scan.
          ./hardware-configuration.nix
          ./../../modules/core
+         ./../../modules/common/docker
       ];
 
    # Defines devices name
