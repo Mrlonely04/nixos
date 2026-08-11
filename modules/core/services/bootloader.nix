@@ -1,8 +1,7 @@
+{ config, ... }:
 {
-   config = {
-      boot.loader = {
-         limine.enable = true;
-         efi.canTouchEfiVariables = true;
-      };
+   boot.loader = {
+      limine.enable = true;
+      efi.canTouchEfiVariables = true;   
    };
 }

@@ -75,7 +75,7 @@
                {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
-                  home-manager.users.gomelab = import ./home/homelab;
+                  home-manager.users.homelab = import ./home/homelab;
                   home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
                }
             ];
