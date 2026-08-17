@@ -22,6 +22,16 @@
       nerd-fonts.comic-shanns-mono
    ];
 
+   # Enables ssh
+   services.openssh = {
+      enable = true;
+      settings = {
+         PasswordAuthentication = true;
+
+      };
+   };
+
+   # Enables zsh
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
 
