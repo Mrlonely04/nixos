@@ -37,5 +37,6 @@
       tree
       htop
       docker
+      jdupes
    ];
 }
