@@ -1,5 +1,5 @@
 {
-  Imports = [
+  imports = [
     ./tailscale.nix
   ];
 }
