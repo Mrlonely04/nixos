@@ -8,6 +8,7 @@
          ./../../modules/common/spotify
          ./../../modules/common/mango 
          ./../../modules/common/noctalia
+         ./../../modules/common/tailscale
 
       ];
 
