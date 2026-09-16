@@ -10,6 +10,7 @@
          ./../../modules/common/mango
          ./../../modules/common/noctalia
          ./../../modules/common/vm
+         ./../../modules/common/ollama
       ];
 
    # Adds windows to boot options
