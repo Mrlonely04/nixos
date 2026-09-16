@@ -9,7 +9,7 @@
          ./../../modules/common/spotify
          ./../../modules/common/mango
          ./../../modules/common/noctalia
-         ./../../modules/common/vm
+         #./../../modules/common/vm
          ./../../modules/common/ollama
       ];
 
@@ -19,6 +19,7 @@
       protocol: efi
       path: uuid(bec649ce-ec48-4022-8407-b616b322d88d):/EFI/Microsoft/Boot/bootmgfw.efi
    '';
+   boot.loader.limine.secureBoot.enable = true;
 
 
    # Defines devices name

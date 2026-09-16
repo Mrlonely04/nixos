@@ -13,6 +13,7 @@
       xdg-desktop-portal-wlr
       wget
       wl-clipboard
+      sbctl
    ];
 
 }
