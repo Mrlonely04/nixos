@@ -50,5 +50,6 @@
       heroic
       prismlauncher
       bottles
+      lmstudio
    ];
 }
