@@ -9,8 +9,10 @@
          ./../../modules/common/spotify
          ./../../modules/common/mango
          ./../../modules/common/noctalia
+         ./../../modules/common/waydroid
          #./../../modules/common/vm
          #./../../modules/common/ollama
+
       ];
 
    # Adds windows to boot options
