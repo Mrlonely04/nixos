@@ -51,5 +51,6 @@
       prismlauncher
       bottles
       lmstudio
+      wine
    ];
 }
