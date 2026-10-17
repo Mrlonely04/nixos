@@ -9,6 +9,7 @@
          ./../../modules/common/mango 
          ./../../modules/common/noctalia
          ./../../modules/common/tailscale
+         ./../../modules/common/flatpak
 
       ];
 
