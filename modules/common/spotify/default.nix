@@ -1,5 +1,5 @@
 {
-   imports = [
-      ./spotify.nix
-   ];
+  imports = [
+    ./common.nix
+  ];
 }

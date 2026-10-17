@@ -1,5 +1,5 @@
 {
   imports = [
-    ./ollama.nix
+    ./common.nix
   ];
 }
