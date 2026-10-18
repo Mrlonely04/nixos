@@ -2,6 +2,8 @@
   programs.zed-editor = {
     enable = true;
     extensions = [ "nix" ];
-    vim_mode = true;
+    userSettings = {
+      vim_mode = true;
+    };
   };
 }

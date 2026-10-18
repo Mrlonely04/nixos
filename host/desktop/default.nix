@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
    imports =
       [ # Include the results of the hardware scan.
@@ -32,6 +32,7 @@
 
    programs.nix-ld = {
      enable = true;
+      libraries = [ pkgs.openssl pkgs.zlib ];
    };
    # allows unfree pkgs
    nixpkgs.config.allowUnfree = true;
@@ -61,6 +62,10 @@
          tree
       ];
    };
+   environment.systemPackages = with pkgs; [
+      nixd
+      nil
+   ];
 
    nix.settings.experimental-features = ["nix-command" "flakes" ];
 

@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, system, ... }: 
+{ pkgs, inputs, system, ... }:
 {
    imports = [
-      ./../modules/obs
       ./../modules/git
       ./../modules/vscode
+      ./../modules/zed
       ./services
    ];
 
@@ -36,7 +36,7 @@
          ];
          theme = "robbyrussell";
       };
-      
+
    };
 
    # Packages that will come with the user
