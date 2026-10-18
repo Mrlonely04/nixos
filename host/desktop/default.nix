@@ -11,7 +11,7 @@
          ./../../modules/common/noctalia
          ./../../modules/common/waydroid
          #./../../modules/common/vm
-         #./../../modules/common/ollama
+         ./../../modules/common/ollama
 
       ];
 
@@ -23,7 +23,6 @@
    '';
    boot.loader.limine.secureBoot.enable = true;
 
-
    # Defines devices name
    networking.hostName = "nykta"; # Define your hostname.
    networking.networkmanager.enable = true;
@@ -31,6 +30,9 @@
    # Time zone obv
    time.timeZone = "America/New_York";
 
+   programs.nix-ld = {
+     enable = true;
+   };
    # allows unfree pkgs
    nixpkgs.config.allowUnfree = true;
 
@@ -47,7 +49,7 @@
    #   extra-substituters = [ "https://noctalia.cachix.org" ];
    #   extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
    #};
-   
+
    programs.zsh.enable = true;
    users.defaultUserShell = pkgs.zsh;
 
