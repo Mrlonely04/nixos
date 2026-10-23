@@ -2,7 +2,6 @@
 {
    imports = [
       ./../modules/git
-      ./../modules/vscode
       ./../modules/zed
       ./services
    ];

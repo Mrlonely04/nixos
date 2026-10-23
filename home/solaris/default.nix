@@ -2,7 +2,10 @@
 {
    imports = [
       ./../modules/git
+<<<<<<< HEAD
       ./../modules/vscode
+=======
+>>>>>>> a38743094d2273cf7dcb48968d7ce894ffdea390
       ./../modules/zed
       ./services
    ];

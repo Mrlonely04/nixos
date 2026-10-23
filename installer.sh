@@ -23,23 +23,23 @@ if [[ $choice == "q" || $choice == "Q" ]]; then
 fi
 
  case $choice in
-     1) 
+     1)
          echo "Rebuilding Desktop configuration..."
          sudo nixos-rebuild switch --flake ~/nixos#desktop
          ;;
-     2) 
+     2)
          echo "Rebuilding Laptop configuration..."
          sudo nixos-rebuild switch --flake ~/nixos#laptop
          ;;
-     3) 
+     3)
          echo "Rebuilding Homelab configuration..."
          sudo nixos-rebuild switch --flake ~/nixos#homelab
          ;;
-     4) 
+     4)
          echo "Rebuilding Steam Machine configuration..."
          sudo nixos-rebuild switch --flake ~/nixos#steam-machine
          ;;
-     *) 
+     *)
          echo "Invalid selection. Please try again."
          exit 1
          ;;
