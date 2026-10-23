@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: 
+{ pkgs, ... }:
 {
    imports =
       [ # Include the results of the hardware scan.
@@ -6,7 +6,7 @@
          ./../../modules/core
          ./../../modules/common/laptop
          ./../../modules/common/spotify
-         ./../../modules/common/mango 
+         ./../../modules/common/mango
          ./../../modules/common/noctalia
          ./../../modules/common/tailscale
          ./../../modules/common/flatpak
@@ -14,7 +14,7 @@
       ];
 
    # Defines devices name
-   networking.hostName = "solaris"; 
+   networking.hostName = "solaris";
    networking.networkmanager.enable = true;
 
    # Time zone obv
@@ -30,23 +30,21 @@
 
    # Enables and sets zsh as default shell
    programs.zsh.enable = true;
-   users.defaultUserShell = pkgs.zsh;
 
-   # Enables and caches nocatalia
-   #environment.systemPackages = [
-   #   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-   #];
-   #nix.settings = {
-   #   extra-substituters = [ "https://noctalia.cachix.org" ];
-   #   extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-   #};
+   users.defaultUserShell = pkgs.zsh;
+     environment.systemPackages = with pkgs; [
+      nixd
+      nil
+   ];
+
+
 
    # Enables battery checker
    services.upower.enable = true;
 
    # Enables power profile
    services.power-profiles-daemon.enable = true;
-   
+
    # Sets user
    users.users.solaris = {
       isNormalUser = true;

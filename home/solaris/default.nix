@@ -1,8 +1,9 @@
-{ config, pkgs, inputs, system, ... }: 
+{ pkgs, inputs, system, ... }:
 {
    imports = [
       ./../modules/git
       ./../modules/vscode
+      ./../modules/zed
       ./services
    ];
 
@@ -35,7 +36,7 @@
          ];
          theme = "robbyrussell";
       };
-      
+
    };
 
    # Packages that will come with the user
@@ -45,5 +46,6 @@
       htop
       inputs.zen-browser.packages."${system}".twilight
       vesktop
+      proton-vpn
    ];
 }
