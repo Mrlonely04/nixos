@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
    xdg.portal = {
       enable = true;
       wlr.enable = true;
@@ -22,5 +22,5 @@
          max_fps = "60";
       };
    };
-   
+
 }

@@ -10,7 +10,7 @@
          ./../../modules/common/noctalia
          ./../../modules/common/tailscale
          ./../../modules/common/flatpak
-         ./../../modules/common/librewolf
+         #./../../modules/common/librewolf
 
       ];
 

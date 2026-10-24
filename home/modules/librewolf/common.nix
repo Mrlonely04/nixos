@@ -25,26 +25,26 @@
         };
         #BitWarden
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/5125667/bitwarden_password_manager/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/{446900e4-71c2-419f-a6a7-df9c091e268b}/latest.xpi";
           installation_mode = "force_installed";
         };
         #Improve_Youtube
         "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4884091/youtube_addon/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}/latest.xpi";
           installation_mode = "force_installed";
         };
         #Sponser_Block
         "sponsorBlocker@ajay.app" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4897574/sponsorblock/latest.xpi";
-          install_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "force_installed";
         };
         #Qwant_Search-Engine
         "qwant-search-firefox@qwant.com" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4345028/qwant_the_search_engine/latest.xpi";
-          install_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/qwant-search-firefox@qwant.com/latest.xpi";
+          installation_mode = "force_installed";
         };
       };
     };
   };
-  environment.etc."firefox/policies/policies.json".target = "librewolf/policies/policies.json";
+  #environment.etc."firefox/policies/policies.json".target = "librewolf/polieies/policies.json";
 }

@@ -3,6 +3,7 @@
    imports = [
       ./../modules/git
       ./../modules/zed
+      ./../modules/librewolf
       ./services
    ];
 
