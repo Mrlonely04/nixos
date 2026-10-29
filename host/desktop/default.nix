@@ -32,7 +32,7 @@
 
    programs.nix-ld = {
      enable = true;
-      libraries = [ pkgs.openssl pkgs.zlib ];
+      libraries = [ pkgs.nixd pkgs.nil ];
    };
    # allows unfree pkgs
    nixpkgs.config.allowUnfree = true;

@@ -37,7 +37,10 @@
       nixd
       nil
    ];
-
+   programs.nix-ld = {
+     enable = true;
+      libraries = [ pkgs.nixd pkgs.nil ];
+   };
 
 
    # Enables battery checker
