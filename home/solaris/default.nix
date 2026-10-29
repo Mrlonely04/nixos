@@ -1,51 +1,49 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, ... }:
 {
-   imports = [
-      ./../modules/git
-      ./../modules/zed
-      ./../modules/librewolf
-      ./services
-   ];
+  imports = [
+    ./../modules/git
+    ./../modules/zed
+    ./../modules/librewolf
+    ./services
+  ];
 
-   # Basic user info
-   home.username = "solaris";
-   home.stateVersion = "25.11";
+  # Basic user info
+  home.username = "solaris";
+  home.stateVersion = "25.11";
 
-   programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-   #shell configuration
-   programs.zsh = {
-      enable = true;
-      enableCompletion = true;
+  #shell configuration
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
 		shellAliases = {
-         update = "nix flake update";
+      update = "nix flake update";
 			rebuild = "sudo nixos-rebuild switch --flake ~/nixos#laptop";
-         clean = "nix-collect-garbage -d";
-         Sclean = "sudo nix-collect-garbage -d";
-         list-gen = "nixos-rebuild list-generations";
+      clean = "nix-collect-garbage -d";
+      Sclean = "sudo nix-collect-garbage -d";
+      list-gen = "nixos-rebuild list-generations";
 		};
 		profileExtra = ''
 			if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTR" = 1 ]; then
 			exec uwsm start -S hyprland-uwsm.desktop
 			fi
 		'';
-      oh-my-zsh = {
-         enable = true;
-         plugins = [
-            "git"         # also requires `programs.git.enable = true;`
-         ];
-         theme = "robbyrussell";
-      };
+     oh-my-zsh = {
+      enable = true;
+      plugins = [
+         "git"         # also requires `programs.git.enable = true;`
+      ];
+      theme = "robbyrussell";
+     };
+  };
 
-   };
-
-   # Packages that will come with the user
-   home.packages = with pkgs; [
-      git
-      tree
-      htop
-      inputs.zen-browser.packages."${system}".twilight
-      vesktop
-      proton-vpn
-   ];
+  # Packages that will come with the user
+  home.packages = with pkgs; [
+    git
+    tree
+    htop
+    vesktop
+    proton-vpn
+  ];
 }

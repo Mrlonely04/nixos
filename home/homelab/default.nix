@@ -1,42 +1,41 @@
-{ config, pkgs, inputs, system, ... }: 
+{ pkgs, ... }:
 {
-   imports = [
-      ./../modules/git
-   ];
+  imports = [
+    ./../modules/git
+  ];
 
-   # Basic user info
-   home.username = "homelab";
-   home.stateVersion = "25.11";
+  # Basic user info
+  home.username = "homelab";
+  home.stateVersion = "25.11";
 
-   programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-   #shell configuration
-   programs.zsh = {
-      enable = true;
-      enableCompletion = true;
+  #shell configuration
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
 		shellAliases = {
-         update = "nix flake update";
-	 rebuild = "sudo nixos-rebuild switch --flake ~/nixos#homelab";
-         clean = "nix-collect-garbage -d";
-         Sclean = "sudo nix-collect-garbage -d";
-         list-gen = "nixos-rebuild list-generations";
+      update = "nix flake update";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos#homelab";
+      clean = "nix-collect-garbage -d";
+      Sclean = "sudo nix-collect-garbage -d";
+      list-gen = "nixos-rebuild list-generations";
 		};
-      oh-my-zsh = {
-         enable = true;
-         plugins = [
-            "git"         # also requires `programs.git.enable = true;`
-         ];
-         theme = "robbyrussell";
-      };
-      
-   };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"         # also requires `programs.git.enable = true;`
+      ];
+      theme = "robbyrussell";
+     };
+  };
 
-   # Packages that will come with the user
-   home.packages = with pkgs; [
-      git
-      tree
-      htop
-      docker
-      jdupes
-   ];
+  # Packages that will come with the user
+  home.packages = with pkgs; [
+    git
+    tree
+    htop
+    docker
+    jdupes
+  ];
 }
