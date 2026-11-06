@@ -5,8 +5,9 @@
 	  #Unstble pkgs
 	  nixpkgs.url = "nixpkgs/nixos-unstable";
 		#Flake parts
-		#flake-parts.url = "github:hercules-ci/flake-parts";
-		#
+		flake-parts.url = "github:hercules-ci/flake-parts";
+		#Import Tree
+		inputs.import-tree.url = "github:denful/import-tree";
     #Chaotic pkgs
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     #Home-Manager
@@ -27,6 +28,8 @@
   let
   system = "x86_64-linux";
   in
+  #inputs.flake-parts.lib.mkFlake { inherit inputs; }
+	#(inputs.import-tree ./modules);
   {
     # setting up multi system support
     nixosConfigurations = {
