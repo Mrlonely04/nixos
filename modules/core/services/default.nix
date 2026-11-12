@@ -1,8 +1,8 @@
 {
-   imports = [
-      ./bootloader.nix
-      ./bluetooth.nix
-      ./display-manager.nix
-      ./xdg-portals.nix
-   ];
+  imports = [
+    ./bluetooth.nix
+    ./bootloader.nix
+    ./display-manager.nix
+    ./xdg-portals.nix
+  ];
 }
