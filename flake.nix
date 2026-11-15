@@ -84,20 +84,20 @@
         ];
       };
 
-      steamMachine = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        inherit system;
-        modules = [
-          ./host/steamMachine
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.steamMachine = import ./home/SteamMachine;
-            home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-          }
-        ];
-      };
+     # steamMachine = nixpkgs.lib.nixosSystem {
+     #   specialArgs = { inherit inputs; };
+     #   inherit system;
+     #   modules = [
+     #     ./host/steamMachine
+     #     home-manager.nixosModules.home-manager
+     #     {
+     #       home-manager.useGlobalPkgs = true;
+     #       home-manager.useUserPackages = true;
+     #       home-manager.users.steamMachine = import ./home/SteamMachine;
+     #       home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+     #     }
+     #   ];
+     # };
     };
 	};
 }
