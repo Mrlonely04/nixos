@@ -1,7 +1,7 @@
 {
    imports = [
       ./nvidia.nix
-      ./kernel.ni
+      ./kernel.nix
       ./steam.nix
    ];
 }
