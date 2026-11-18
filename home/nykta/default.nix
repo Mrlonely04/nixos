@@ -50,5 +50,6 @@
    bottles
    lmstudio
    wine
+   emacsPackages.magit
   ];
 }

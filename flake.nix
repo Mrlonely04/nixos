@@ -20,8 +20,6 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     #Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-
 	};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, mangowm, chaotic, spicetify-nix, ... }:
@@ -43,6 +41,7 @@
           mangowm.nixosModules.mango
           chaotic.nixosModules.default
           spicetify-nix.nixosModules.spicetify
+
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
