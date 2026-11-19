@@ -20,14 +20,12 @@
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     #Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    lazyvim.url = "github:pfassina/lazyvim-nix";
 	};
-
-	outputs = inputs@{ self, nixpkgs, home-manager, mangowm, chaotic, spicetify-nix, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, mangowm, chaotic, spicetify-nix, lazyvim, ... }:
   let
   system = "x86_64-linux";
   in
-  #inputs.flake-parts.lib.mkFlake { inherit inputs; }
-	#(inputs.import-tree ./modules);
   {
     # setting up multi system support
     nixosConfigurations = {

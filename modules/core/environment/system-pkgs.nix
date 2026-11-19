@@ -8,7 +8,7 @@
     pipewire
     wireplumber
     rofi
-    neovim
+    #neovim
     xdg-desktop-portal-wlr
     wget
     wl-clipboard
