@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  USER_ID = 1000; # choose any number, doesn't matter
+  USER = "nykta"; # whatever your username is
+  KEY_FILE = "id_ed25519"; # or whatever key file
+in
 {
    imports =
       [ # Include the results of the hardware scan.
@@ -14,6 +19,23 @@
          ./../../modules/common/ollama
 
       ];
+      #users.users.${USER}.uid = USER_ID;
+             environment.sessionVariables.SSH_AUTH_SOCK = "/run/user/${toString USER_ID}/ssh-agent";
+             programs.ssh.startAgent = true;
+             # add ssh key on login
+             systemd.user.services.ssh-add-key = {
+               wantedBy = [ "default.target" ];
+               after = [ "ssh-agent.service" ];
+               serviceConfig = {
+                 Type = "oneshot";
+                 ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 1";
+                 ExecStart = [
+                   "${pkgs.openssh}/bin/ssh-add ${config.users.users.${USER}.home}/.ssh/${KEY_FILE}"
+                 ];
+                 Restart = "on-failure";
+                 RestartSec = 1;
+               };
+             };
 
    # Adds windows to boot options
    boot.loader.limine.extraEntries = ''
@@ -56,11 +78,12 @@
 
    # Sets user
    users.users.nykta = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      packages = with pkgs; [
-         tree
-      ];
+    uid = USER_ID;
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      tree
+    ];
    };
    environment.systemPackages = with pkgs; [
       nixd
