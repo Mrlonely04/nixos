@@ -1,11 +1,26 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
+    inputs.lazyvim.homeManagerModules.default
     ./../modules/git
     ./../modules/zed
     ./../modules/librewolf
     ./services
   ];
+  programs.lazyvim = {
+    enable = true;
+    extras = {
+      lang.nix.enable = true;
+      lang.python.enable = true;
+    };
+
+      # IMPORTANT: Extras don't install treesitter parsers automatically
+      # You must add them manually for syntax highlighting
+    treesitterParsers = with pkgs.tree-sitter-grammars; [
+      tree-sitter-nix
+      tree-sitter-python
+    ];
+  };
 
   # Basic user info
   home.username = "solaris";
@@ -24,11 +39,6 @@
       Sclean = "sudo nix-collect-garbage -d";
       list-gen = "nixos-rebuild list-generations";
 		};
-		profileExtra = ''
-			if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTR" = 1 ]; then
-			exec uwsm start -S hyprland-uwsm.desktop
-			fi
-		'';
      oh-my-zsh = {
       enable = true;
       plugins = [
