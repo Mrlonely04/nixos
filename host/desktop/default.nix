@@ -14,19 +14,11 @@ in
       ./../../modules/common/mango
       ./../../modules/common/noctalia
       ./../../modules/common/waydroid
-      #./../../modules/common/vm
-      ./../../modules/common/ollama
+      ./../../modules/common/vm
+    #./../../modules/common/ollama
 
   ];
- # programs.neovim = {
- #   enable = true;
- #   configure = {
- #     packages.all.start = with pkgs.vimPlugins; [
- #       nvim-treesitter.withAllGrammars # to install all grammars (including nix)
- #       LazyVim
- #     ];
- #   };
- # };
+
   environment.sessionVariables.SSH_AUTH_SOCK = "/run/user/${toString USER_ID}/ssh-agent";
   programs.ssh.startAgent = true;
   # add ssh key on login
@@ -71,15 +63,6 @@ in
     nerd-fonts.comic-shanns-mono
   ];
 
-  # Enables and caches nocatalia
-  #environment.systemPackages = [
-  #   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-  #];
-  #nix.settings = {
-  #   extra-substituters = [ "https://noctalia.cachix.org" ];
-  #   extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-  #};
-
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -87,7 +70,7 @@ in
   users.users.nykta = {
     uid = USER_ID;
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -100,5 +83,4 @@ in
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib,  ...}:
 {
   xdg.portal = {
     enable = true;
@@ -18,8 +18,7 @@
       exec_before = "disable_notifications.sh";
       exec_after = "enable_notifications.sh";
       chooser_type = "dmenu";
-      chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
-      #chooser_cmd = "noctalia dmenu";
+      chooser_cmd = "${lib.getExe pkgs.noctalia} dmenu";
       max_fps = "60";
     };
   };
