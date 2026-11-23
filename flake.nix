@@ -95,21 +95,6 @@
      #     }
      #   ];
      # };
-        
-      vm-1 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        inherit system;
-        modules = [
-          ./host/vm-1
-          home-manager.nixosModules.home-manager
-          {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.steamMachine = import ./home/vm-1;
-          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
-          }
-        ];
-      };
     };
 	};
 }
